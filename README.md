@@ -41,7 +41,7 @@ $ php yii migrate/up --migrationPath=@vendor/yiimodules/yii2-newsletter/migratio
 $ http://localhost/YOUR-PROJECT-NAME/web/index.php?r=newsletter
 ```
 
-## Get category list in frontend
+## Add enteries to created campaign
 
 ```php
 // To Insert contact in newsletter campaign
