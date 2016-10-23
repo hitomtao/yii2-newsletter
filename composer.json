@@ -1,0 +1,28 @@
+{
+  "name": "yiimodules/yii2-newsletter",
+  "description": "Complete newsletter management system",
+  "keywords": [
+    "yii2","Newsletter management system","Send bulk emails","email campaigns"
+  ],
+  "language": "PHP",
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Yii Modules",
+      "email": "indr.sidhu@gmail.com",
+      "homepage": "https://www.linkedin.com/in/indrsidhu"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.3.2",
+    "yiisoft/yii2": "*",
+	"kartik-v/yii2-widget-datetimepicker": "*"
+  },
+  "autoload": {
+        "psr-4": {
+            "yiimodules\\newsletter\\": ""
+        }
+    }
+}
