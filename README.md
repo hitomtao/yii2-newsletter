@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Categories Management Yii2 Module
 Complete category management module for Yii2 based web application, Ready to integrate
 
@@ -54,3 +55,7 @@ Yii::$app->getModule('categories')->getAll();
 // To list specific category with sub categories in array response, here 4 is category Id I'm fetching.
 Yii::$app->getModule('categories')->getOne(4); 
 ```
+=======
+# yii2-newsletter
+Yii2 newsletter module allows you to easily manage all your newsletter contacts, for sending email and SMS and scheduling marketing campaigns in one place.
+>>>>>>> 315aff325ef3ef5df84f7d873429a420c27c408c
