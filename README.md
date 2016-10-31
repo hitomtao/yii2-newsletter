@@ -10,7 +10,7 @@ yii2-newsletter can be installed using composer. Run following command to downlo
 install yii2-newsletter:
 
 ```bash
-composer require "yiimodules/yii2-newsletter:1.0.*"
+composer require "yiimodules/yii2-newsletter:dev-master"
 ```
 
 ### 2. Configure
@@ -24,6 +24,15 @@ Add following lines to your main configuration file to access this module via we
 	],
 ],
 ```
+
+#### Configure text editor module
+
+```php
+'modules' => [
+	'redactor' => 'yii\redactor\RedactorModule',
+],
+```
+
 
 ### 3. Update database schema
 

@@ -37,7 +37,7 @@ use \kartik\datetime\DateTimePicker;
 
     <?= $form->field($model, 'subject')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+	<?= $form->field($model, 'body')->widget(\yii\redactor\widgets\Redactor::className()) ?>
 
     <?= $form->field($model, 'is_active')->dropDownList(array("1"=>"Active","0"=>"InActive")) ?>
 
