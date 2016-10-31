@@ -3,7 +3,7 @@ Complete newsletter management module for Yii2 based web application, Ready to i
 
 * Easy to install
 * Create Unlimited newsletters
-* Html enabled emails
+* Html enabled email content
 
 ### 1. Download
 
