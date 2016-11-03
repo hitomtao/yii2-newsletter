@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\helpers\ArrayHelper;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\vendor\yiimodules\newsletter\models\CampaignsQueueSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -37,6 +39,28 @@ $this->params['breadcrumbs'][] = $this->title;
             //'mobile',
             'created_at',
             'send_time',
+			[
+				'attribute' => 'gender',
+				'header'	=> 'Gender',
+				'filter' => Html::ActiveDropDownList($searchModel, 'gender',[''=>'All','MALE'=>'Male','FEMALE'=>'Female'],['class'=>'form-control']),
+				'value' => function ($model) {
+					return (isset($model->user->profile) && ($model->user->profile->gender == "MALE"))
+						? '<center class="text-success">Male</center>'
+						: '<center class="text-success">Female</center>';
+				},
+				'format' => 'html',
+			],
+			[
+				'attribute' => 'country_id',
+				'header'	=> 'Country',
+				'filter' => Html::ActiveDropDownList($searchModel, 'country_id',ArrayHelper::map(\app\models\PlacesCountry::find()->asArray()->all(), 'id', 'name'),['prompt'=>'All','class'=>'form-control']),
+				'value' => function ($model) {
+					return (isset($model->user->profile) && ($model->user->profile->places_country_id != ""))
+						? '<center class="text-success">'.$model->user->profile->country->name.'</center>'
+						: '<center class="text-success"></center>';
+				},
+				'format' => 'html',
+			],
 			[
 				'attribute'=>'is_sent',
 				'value'=> function($model){

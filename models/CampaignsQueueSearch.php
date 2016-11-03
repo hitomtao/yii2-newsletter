@@ -12,6 +12,9 @@ use yiimodules\newsletter\models\CampaignsQueue;
  */
 class CampaignsQueueSearch extends CampaignsQueue
 {
+	public $gender;
+	public $country_id;
+	
     /**
      * @inheritdoc
      */
@@ -19,7 +22,7 @@ class CampaignsQueueSearch extends CampaignsQueue
     {
         return [
             [['id', 'newsletter_campaigns_id', 'user_id', 'is_sent', 'created_by_user_id'], 'integer'],
-            [['email', 'mobile', 'created_at', 'send_time', 'updated_at'], 'safe'],
+            [['email', 'mobile', 'created_at', 'send_time', 'updated_at','gender','country_id'], 'safe'],
         ];
     }
 
@@ -42,6 +45,7 @@ class CampaignsQueueSearch extends CampaignsQueue
     public function search($params)
     {
         $query = CampaignsQueue::find();
+		$query->join = [['INNER JOIN', 'profile', 'profile.user_id = `newsletter_campaigns_queue`.user_id']];
 
         // add conditions that should always apply here
 
@@ -70,6 +74,8 @@ class CampaignsQueueSearch extends CampaignsQueue
         ]);
 
         $query->andFilterWhere(['like', 'email', $this->email])
+            ->andFilterWhere(['profile.gender' => $this->gender])
+            ->andFilterWhere(['=', 'profile.places_country_id', $this->country_id])
             ->andFilterWhere(['like', 'mobile', $this->mobile]);
 
         return $dataProvider;

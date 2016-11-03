@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace yiimodules\newsletter;
 
 use Yii;

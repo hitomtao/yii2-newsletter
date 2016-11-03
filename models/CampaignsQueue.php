@@ -86,4 +86,10 @@ class CampaignsQueue extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Campaigns::className(), ['id' => 'newsletter_campaigns_id']);
     }
+	
+    public function getUser()
+    {
+        return $this->hasOne(\app\models\User::className(), ['id' => 'user_id']);
+    }
+	
 }
